@@ -1,0 +1,8 @@
+{{ if (default .Values.useConfigMap false) }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-variabelen
+data:
+  naam: "Topper"
+{{ end }}

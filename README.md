@@ -171,7 +171,7 @@ Wat kan nog meer beter?
 
 Hoe kunnen we resources inschatten?
 
-(Indien de metrics api is ingeschakeld: `minikube addons enable metrics-server` )
+(Indien de metrics api niet is ingeschakeld: `minikube addons enable metrics-server` )
 
 ```bash
 minikube kubectl -- top pod

@@ -96,10 +96,11 @@ Controleer of de deployment werkt:
 In een terminal start een portforwarding:
 
 ```bash
-minikube kubectl port-forward svc/workshop 80:80
+# Poort 8000 op de host, port 80 in minikube
+minikube kubectl port-forward svc/workshop 8000:80
 ```
 
-Open weer de link <http://localhost/hello>
+Open nu de link <http://localhost:8000/hello>.
 Hoe veilig is deze eigenlijk?
 
 ## 6 Inspecteer de POD
@@ -167,3 +168,11 @@ Wat kan nog meer beter?
 - Resources?
 - Probes?
 - Replicacount?
+
+Hoe kunnen we resources inschatten?
+
+(Indien de metrics api is ingeschakeld: `minikube addons enable metrics-server` )
+
+```bash
+minikube kubectl -- top pod
+```

@@ -153,6 +153,13 @@ grype workshop:1.3.0
 docker image ls
 ```
 
+Welke issues zijn er opgelost?
+
+```bash
+diff <(grype workshop:1.0.0) <(grype workshop:1.3.0)
+```
+
+
 ## 8 Zijn we er nu?
 
 Wat kan nog meer beter?

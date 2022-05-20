@@ -4,6 +4,10 @@ Bekijk de Dockerfile. Deze is redelijk eenvoudig. Het neemt een bestaand python 
 
 Deze applicatie is straks te benaderen op <http://localhost/hello> en <http://localhost/healthz>
 
+## 0 Cross platform
+
+macOS gebruikers hebben mogelijk een arm processor ipv een amd/intel. Op zich geen probleem voor deze workshop. Maar als je expliciet amd64 images wilt gebruiken kan dat door de `docker build` commando's aan te passen. Zo'n commando zou er als volgt uit kunnen zien: `docker buildx build --platform linux/amd64 -t workshop:1.0.0 -f Dockerfile-1 .`
+
 ## 1 Maak het image en start deze
 
 Hiervoor heb je twee terminals nodig.
@@ -11,10 +15,8 @@ Hiervoor heb je twee terminals nodig.
 In terminal 1 voer je de volgende commando's uit:
 
 ```bash
-# For amd64 hosts
 docker build -t workshop:1.0.0 -f Dockerfile-1 .
-# For arm hosts
-docker buildx build --platform linux/amd64 -t workshop:1.0.0 -f Dockerfile-1 .
+
 docker run -e HELLO_NAME=Phippy2 --name workshop --rm -p 80:80 workshop:1.0.0
 ```
 
@@ -49,10 +51,8 @@ Probeer eens het volgende in terminal 1:
 ```bash
 diff Dockerfile-1 Dockerfile-2
 
-# For amd64 hosts
 docker build -t workshop:1.2.0 -f Dockerfile-2 .
-# For arm hosts
-docker buildx build --platform linux/amd64 -t workshop:1.0.0 -f Dockerfile-2 .
+
 docker run -e HELLO_NAME=Phippy2 --user 500 --name workshop --rm -p 80:8000 workshop:1.2.0
 ```
 
@@ -145,10 +145,8 @@ Ai, dat is schrikken...
 En nu dan?
 
 ```bash
-# For amd64
+
 docker build -t workshop:1.3.0 .
-# For arm
-docker buildx build --platform linux/amd64 -t workshop:1.0.0 -f Dockerfile-3 .
 
 grype workshop:1.3.0
 

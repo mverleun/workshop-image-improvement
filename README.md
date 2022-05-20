@@ -11,7 +11,10 @@ Hiervoor heb je twee terminals nodig.
 In terminal 1 voer je de volgende commando's uit:
 
 ```bash
+# For amd64 hosts
 docker build -t workshop:1.0.0 -f Dockerfile-1 .
+# For arm hosts
+docker buildx build --platform linux/amd64 -t workshop:1.0.0 -f Dockerfile-1 .
 docker run -e HELLO_NAME=Phippy2 --name workshop --rm -p 80:80 workshop:1.0.0
 ```
 
@@ -25,7 +28,7 @@ Kijk in een browser of <http://localhost/hello> het doet. Kijk ook naar de loggi
 Log in een tweede terminal in in de draaiende container en bekijk verschillende aspecten:
 
 ```bash
-docker exec -it workshop:1.0.0 bash
+docker exec -it workshop bash
 # inside container
 id
 apt update
@@ -46,7 +49,10 @@ Probeer eens het volgende in terminal 1:
 ```bash
 diff Dockerfile-1 Dockerfile-2
 
+# For amd64 hosts
 docker build -t workshop:1.2.0 -f Dockerfile-2 .
+# For arm hosts
+docker buildx build --platform linux/amd64 -t workshop:1.0.0 -f Dockerfile-2 .
 docker run -e HELLO_NAME=Phippy2 --user 500 --name workshop --rm -p 80:8000 workshop:1.2.0
 ```
 
@@ -55,7 +61,7 @@ docker run -e HELLO_NAME=Phippy2 --user 500 --name workshop --rm -p 80:8000 work
 En in terminal 2:
 
 ```bash
-docker exec -it workshop:1.0.0 bash
+docker exec -it workshop bash
 # inside container
 id
 apt update
@@ -119,7 +125,7 @@ Kunnen we iets doen:
 
 - A in de Dockerfile?
 - B in de manifest file?
-- C c'est la via, mon ami.
+- C C'est la via, mon ami.
 
 Wat dachten jullie van:
 
@@ -139,7 +145,11 @@ Ai, dat is schrikken...
 En nu dan?
 
 ```bash
+# For amd64
 docker build -t workshop:1.3.0 .
+# For arm
+docker buildx build --platform linux/amd64 -t workshop:1.0.0 -f Dockerfile-3 .
+
 grype workshop:1.3.0
 
 docker image ls

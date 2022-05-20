@@ -176,3 +176,14 @@ Hoe kunnen we resources inschatten?
 ```bash
 minikube kubectl -- top pod
 ```
+
+En hoe kunnen we ons laten adviseren?
+
+Voer het volgende commando in als je Polaris hebt geinstalleerd:
+
+```bash
+polaris dashboard
+```
+
+Open nu <http://localhost:8080/> in een browser en kijk naar de mening van een ander.
+Polaris kan heel erg getuned worden, dit zijn de default settings.

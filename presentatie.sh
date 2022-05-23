@@ -3,7 +3,10 @@
 
 function box() {
     clear
-    printf "${1}\n\n${2}" | boxes -d peek -s 80x24 -p "a2"
+    printf "${1}\n" | boxes -d peek -s 80x2 -p "a2"
+    printf "${2}" | boxes -d parchment -s 80x18 -p "a2"
+    #printf "${1}\n\n${2}" | boxes -d scroll -s 80x24 -p "a2"
+    #printf "${1}\n\n${2}" | boxes -d ian_jones -s 80x24 -p "a2"
     read invoer
 }
 
@@ -48,9 +51,9 @@ Dit image gaan we stap voor stap verbeteren.
 
 Ook zullen we dit image deployen in een Minikube kubernetes cluster.
 
-Als het goed is heb je zowel Docker als Minikube werkend op je werkstation.
-Zo niet, schuif dan aan bij een collega, we hebben nu geen tijd om dat 
-alsnog te installeren.
+Als het goed is heb je zowel Docker als Minikube werkend op je 
+werkstation.  Zo niet, schuif dan aan bij een collega, we hebben nu 
+geen tijd om dat alsnog te installeren.
 
 Als je vragen hebt stel deze dan, als iets niet lukt meldt het dan. Ook 
 ik kan een foutje maken waardoor iets niet lukt.

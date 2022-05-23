@@ -43,7 +43,16 @@ Mijn belangstelling gaat uit naar:
 * Do It Right (Het liefst de eerste keer)
 * Do It Secure (By Design)
 '
+#
+box "Wie zijn jullie?" '
+Ik ben erg benieuwd naar:
+* Je focus binnen i-share
+* Je ervaring met containers/docker
+* Wat je hebt gedaan met Kubernetes
 
+We zijn met een grote groep dus laten we het kort proberen te houden
+'
+#
 box "Agenda" '
 We (Jullie) gaan op basis van een bestaand python image een eenvoudige 
 service maken in een image.
